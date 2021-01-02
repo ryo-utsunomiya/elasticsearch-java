@@ -9,14 +9,10 @@ import org.elasticsearch.client.RequestOptions;
 import org.elasticsearch.client.RestHighLevelClient;
 import org.elasticsearch.client.core.GetSourceRequest;
 
-public class CRUD {
-
-  private final RestHighLevelClient client;
-  private final String index;
+public class CRUD extends ElasticsearchClient {
 
   public CRUD(RestHighLevelClient client, String index) {
-    this.client = client;
-    this.index = index;
+    super(client, index);
   }
 
   public String create(String message) throws IOException {

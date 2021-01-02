@@ -11,12 +11,7 @@ public class App {
     try (var client = new RestHighLevelClient(
         RestClient.builder(new HttpHost("localhost", 9200, "http")))) {
 
-      var crud = new CRUD(client, "my_index");
-      String id = crud.create("created");
-      System.out.println(crud.read(id));
-      crud.update(id, "updated");
-      System.out.println(crud.read(id));
-      crud.delete(id);
+      new Search(client, "my_index").execute();
 
     } catch (IOException ex) {
       ex.printStackTrace();
